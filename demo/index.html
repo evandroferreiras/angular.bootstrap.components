@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head class="navbar navbar-default navbar-fixed-top navbar-inner">
+    <title>Bootstrap components </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- node modules -->
+    <script src="../node_modules/angular/angular.js"></script>
+
+    <!-- App files --->
+    <script src="../demo/assets/app.js"></script>
+    <script src="../demo/assets/model.js"></script>
+    <script src="../demo/assets/ctrl.js"></script>
+
+
+    <!-- Components -->
+    <script src="../src/bt.components.js"></script>
+    <script src="../src/components/bt.model.js"></script>
+    <script src="../src/components/input/bt.input.js"></script>
+    <script src="../src/components/textarea/bt.textarea.js"></script>
+</head>
+
+
+<body ng-app="demo" ng-controller="Ctrl as c">
+    <nav class="navbar navbar-default ">
+        <div class="container-fluid ">
+            <div class="navbar-header ">
+                <div class="navbar-brand ">Bootstrap components</div>
+            </div>
+        </div>
+    </nav>
+    <div class="container ">
+        <div class="page-header ">
+            <h3>{{::c.titleWindow}}</h3>
+        </div>
+        <div class="row ">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                <form name="formCrud " ng-submit="Ctrl.save() " role="form ">
+                    <fieldset>
+                        <div class="col-md-12 ">
+                            <div class="row ">
+                                <bt-input title="Title " value="Ctrl.item.title " req=true></bt-input>
+                            </div>
+                            <div class="row ">
+                                <bt-textarea title="Description " value="Ctrl.item.description " req=true></bt-textarea>
+                            </div>
+
+                            <div class="row well ">
+                                <div class="pull-right ">
+                                    <button type="submit " class="btn btn-primary " ng-disabled="formCrud.$pristine ">Save</button>
+                                    <a class="btn btn-default " ng-href="#list " role="button ">Back to List</a>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="row ">
+            <div uib-alert ng-repeat="alert in vm.alerts " ng-class=" 'alert-' + (alert.type || 'warning') " close="vm.closeAlert($index) ">{{alert.msg}}
+
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
