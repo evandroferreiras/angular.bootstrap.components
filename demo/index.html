@@ -40,12 +40,17 @@
                     <fieldset>
                         <div class="col-md-12 ">
                             <div class="row ">
-                                <bt-input title="Title " value="Ctrl.item.title " req=true></bt-input>
+                                <bt-input title="Title " ng-model="Ctrl.item.title " required=true></bt-input>
                             </div>
                             <div class="row ">
-                                <bt-textarea title="Description " value="Ctrl.item.description " req=true></bt-textarea>
+                                <bt-textarea title="Description " ng-model="Ctrl.item.description " required=true></bt-textarea>
                             </div>
-
+                            <div class="row ">
+                                <bt-input title="Title " ng-model="Ctrl.item.title " required=true has-placeholder=true></bt-input>
+                            </div>
+                            <div class="row ">
+                                <bt-textarea title="Description " ng-model="Ctrl.item.description " required=true has-placeholder=true></bt-textarea>
+                            </div>
                             <div class="row well ">
                                 <div class="pull-right ">
                                     <button type="submit " class="btn btn-primary " ng-disabled="formCrud.$pristine ">Save</button>

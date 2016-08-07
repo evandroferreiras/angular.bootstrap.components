@@ -58,7 +58,7 @@ var app;
                 function btModelCtrl() {
                 }
                 btModelCtrl.prototype.hasError = function () {
-                    return (this.req.toString().toLowerCase() === 'true' && !this.value);
+                    return (this.required.toString().toLowerCase() === 'true' && !this.ngModel);
                 };
                 return btModelCtrl;
             }());
@@ -77,12 +77,13 @@ var app;
             (function (input) {
                 angular.module('bootstrap.components')
                     .component("btInput", {
-                    templateUrl: "../src/components/input/bt.input.html",
+                    template: "<div class=\"form-group\" ng-class=\"$ctrl.hasError() ? 'has-error' : ''\"> \n                            <label class=\"control-label\" ng-hide=\"$ctrl.hasPlaceholder\">{{$ctrl.title}}</label>\n                            <input type=\"text\" ng-model=$ctrl.ngModel ng-required={{$ctrl.required}} class=\"form-control\" placeholder=\"{{$ctrl.hasPlaceholder ? $ctrl.title : ''}}\" />\n                        </div>",
                     controller: bt.btModelCtrl,
                     bindings: {
                         title: "@",
-                        value: "=",
-                        req: "@"
+                        ngModel: "=",
+                        required: "@",
+                        hasPlaceholder: "@"
                     }
                 });
             })(input = bt.input || (bt.input = {}));
@@ -99,12 +100,13 @@ var app;
             (function (textarea) {
                 angular.module('bootstrap.components')
                     .component("btTextarea", {
-                    templateUrl: "../src/components/textarea/bt.textarea.html",
+                    template: "<div class=\"form-group\" ng-class=\"$ctrl.hasError() ? 'has-error' : ''\" >\n                            <label class=\"control-label\" ng-hide=\"$ctrl.hasPlaceholder\">{{$ctrl.title}}</label>\n                            <textarea ng-model=$ctrl.ngModel ng-required={{$ctrl.required}} class=\"form-control\" placeholder=\"{{$ctrl.hasPlaceholder ? $ctrl.title : ''}}\"></textarea>\n                        </div>",
                     controller: bt.btModelCtrl,
                     bindings: {
                         title: "@",
-                        value: "=",
-                        req: "@"
+                        ngModel: "=",
+                        required: "@",
+                        hasPlaceholder: "@"
                     }
                 });
             })(textarea = bt.textarea || (bt.textarea = {}));

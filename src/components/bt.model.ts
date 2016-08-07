@@ -1,20 +1,23 @@
 ﻿module app.components.bt {
     export interface IbtModel {
         title: string;
-        req : boolean;
-        value: string;
+        required : boolean;
+        ngModel: string;
+        hasPlaceholder : boolean;
         hasError() : boolean;
     }
 
     export class btModelCtrl implements IbtModel {
 
         title: string;
-        req: boolean;
-        value: string;
+        required: boolean;
+        ngModel: string;
+        hasPlaceholder : boolean;
+
 
         hasError(): boolean {
 
-            return (this.req.toString().toLowerCase() === 'true' && !this.value);
+            return (this.required.toString().toLowerCase() === 'true' && !this.ngModel);
         }
     };
 }
