@@ -1,31 +1,31 @@
 {
-    "name": "angular.bootstrap.components",
-    "version": "1.0.0",
-    "description": "Angular components for Bootstrap 3.0",
-    "main": "index.js",
-    "readme": "README.md",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/evandroferreiras/angular.bootstrap.components.git"
-    },
-    "keywords": [
-        "Angular",
-        "Components",
-        "Bootstrap3"
-    ],
-    "author": "Evandro F. Souza",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/evandroferreiras/angular.bootstrap.components/issues"
-    },
-    "homepage": "https://github.com/evandroferreiras/angular.bootstrap.components#readme",
-    "devDependencies": {
-        "angular": "^1.5.8",
-        "bootstrap": "^3.3.7",
-        "tsc": "^1.20150623.0",
-        "typescript": "^1.8.10"
-    }
+  "name": "angular.bootstrap.components",
+  "version": "1.1.0",
+  "description": "Angular components for Bootstrap 3.0",
+  "main": "index.js",
+  "readme": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evandroferreiras/angular.bootstrap.components.git"
+  },
+  "keywords": [
+    "Angular",
+    "Components",
+    "Bootstrap3"
+  ],
+  "author": "Evandro F. Souza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evandroferreiras/angular.bootstrap.components/issues"
+  },
+  "homepage": "https://github.com/evandroferreiras/angular.bootstrap.components#readme",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "tsc": "^1.20150623.0",
+    "typescript": "^1.8.10"
+  }
 }
