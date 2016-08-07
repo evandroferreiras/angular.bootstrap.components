@@ -3,7 +3,7 @@
     angular.module('bootstrap.components')
         .component("btInput",
         {
-            template: `<div class="form-group" ng-class="$ctrl.hasError() ? 'has-error' : ''"> 
+            template: `<div  ng-class="$ctrl.formGroupClass()"> 
                             <label class="control-label" ng-hide="$ctrl.hasPlaceholder">{{$ctrl.title}}</label>
                             <input type="text" ng-model=$ctrl.ngModel ng-required={{$ctrl.required}} class="form-control" placeholder="{{$ctrl.hasPlaceholder ? $ctrl.title : ''}}" />
                         </div>`,

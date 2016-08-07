@@ -46,7 +46,13 @@
                                 <bt-textarea title="Description " ng-model="Ctrl.item.description " required=true></bt-textarea>
                             </div>
                             <div class="row ">
-                                <bt-input title="Title " ng-model="Ctrl.item.title " required=true has-placeholder=true></bt-input>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" type="button">Go!</button>
+                                    </span>
+                                    <bt-input title="Title " ng-model="Ctrl.item.title " ng-required=true has-placeholder=true></bt-input>
+                                </div>
+
                             </div>
                             <div class="row ">
                                 <bt-textarea title="Description " ng-model="Ctrl.item.description " required=true has-placeholder=true></bt-textarea>

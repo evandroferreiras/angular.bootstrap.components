@@ -57,8 +57,16 @@ var app;
             var btModelCtrl = (function () {
                 function btModelCtrl() {
                 }
-                btModelCtrl.prototype.hasError = function () {
-                    return (this.required.toString().toLowerCase() === 'true' && !this.ngModel);
+                btModelCtrl.prototype.formGroupClass = function () {
+                    var hasError = (this.required.toString().toLowerCase() === 'true' && !this.ngModel);
+                    var classes = '';
+                    if (hasError) {
+                        classes = classes + ' has-error';
+                    }
+                    if (!this.hasPlaceholder) {
+                        classes = classes + ' form-group';
+                    }
+                    return classes;
                 };
                 return btModelCtrl;
             }());
@@ -77,7 +85,7 @@ var app;
             (function (input) {
                 angular.module('bootstrap.components')
                     .component("btInput", {
-                    template: "<div class=\"form-group\" ng-class=\"$ctrl.hasError() ? 'has-error' : ''\"> \n                            <label class=\"control-label\" ng-hide=\"$ctrl.hasPlaceholder\">{{$ctrl.title}}</label>\n                            <input type=\"text\" ng-model=$ctrl.ngModel ng-required={{$ctrl.required}} class=\"form-control\" placeholder=\"{{$ctrl.hasPlaceholder ? $ctrl.title : ''}}\" />\n                        </div>",
+                    template: "<div  ng-class=\"$ctrl.formGroupClass()\"> \n                            <label class=\"control-label\" ng-hide=\"$ctrl.hasPlaceholder\">{{$ctrl.title}}</label>\n                            <input type=\"text\" ng-model=$ctrl.ngModel ng-required={{$ctrl.required}} class=\"form-control\" placeholder=\"{{$ctrl.hasPlaceholder ? $ctrl.title : ''}}\" />\n                        </div>",
                     controller: bt.btModelCtrl,
                     bindings: {
                         title: "@",
@@ -100,7 +108,7 @@ var app;
             (function (textarea) {
                 angular.module('bootstrap.components')
                     .component("btTextarea", {
-                    template: "<div class=\"form-group\" ng-class=\"$ctrl.hasError() ? 'has-error' : ''\" >\n                            <label class=\"control-label\" ng-hide=\"$ctrl.hasPlaceholder\">{{$ctrl.title}}</label>\n                            <textarea ng-model=$ctrl.ngModel ng-required={{$ctrl.required}} class=\"form-control\" placeholder=\"{{$ctrl.hasPlaceholder ? $ctrl.title : ''}}\"></textarea>\n                        </div>",
+                    template: "<div  ng-class=\"$ctrl.formGroupClass()\" >\n                            <label class=\"control-label\" ng-hide=\"$ctrl.hasPlaceholder\">{{$ctrl.title}}</label>\n                            <textarea ng-model=$ctrl.ngModel ng-required={{$ctrl.required}} class=\"form-control\" placeholder=\"{{$ctrl.hasPlaceholder ? $ctrl.title : ''}}\"></textarea>\n                        </div>",
                     controller: bt.btModelCtrl,
                     bindings: {
                         title: "@",

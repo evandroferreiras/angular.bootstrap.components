@@ -4,7 +4,7 @@
         required : boolean;
         ngModel: string;
         hasPlaceholder : boolean;
-        hasError() : boolean;
+        formGroupClass() : string;
     }
 
     export class btModelCtrl implements IbtModel {
@@ -15,9 +15,18 @@
         hasPlaceholder : boolean;
 
 
-        hasError(): boolean {
+        formGroupClass(): string {
+            var hasError = (this.required.toString().toLowerCase() === 'true' && !this.ngModel);
+            var classes = '';
+            if (hasError){
+                classes = classes + ' has-error'
+            }
 
-            return (this.required.toString().toLowerCase() === 'true' && !this.ngModel);
+            if (!this.hasPlaceholder){
+                classes = classes + ' form-group'
+            }
+            
+            return classes;
         }
     };
 }
